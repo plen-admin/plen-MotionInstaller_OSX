@@ -1,0 +1,518 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F85E058B1B86FFAE00F70834 /* PlenMfxToCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85E058A1B86FFAE00F70834 /* PlenMfxToCmd.swift */; };
+		F85E058D1B87023F00F70834 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85E058C1B87023F00F70834 /* SWXMLHash.swift */; };
+		F8682F471B57EB5600C3B449 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8682F461B57EB5600C3B449 /* json.swift */; };
+		F8682F491B592F2600C3B449 /* PlenJsonToCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8682F481B592F2600C3B449 /* PlenJsonToCmd.swift */; };
+		F87869551B6358FE00B6DFAA /* ORSSerial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F87869521B6358F300B6DFAA /* ORSSerial.framework */; };
+		F87869581B63712400B6DFAA /* ConnectProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87869571B63712400B6DFAA /* ConnectProcess.swift */; };
+		F8AD212C1B63BE8700F4A8A2 /* ORSSerial.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F87869521B6358F300B6DFAA /* ORSSerial.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8AE3B291B57B65C00A205E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AE3B281B57B65C00A205E8 /* AppDelegate.swift */; };
+		F8AE3B2B1B57B65C00A205E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AE3B2A1B57B65C00A205E8 /* ViewController.swift */; };
+		F8AE3B2D1B57B65C00A205E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8AE3B2C1B57B65C00A205E8 /* Images.xcassets */; };
+		F8AE3B301B57B65C00A205E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8AE3B2E1B57B65C00A205E8 /* Main.storyboard */; };
+		F8AE3B3C1B57B65C00A205E8 /* MotionInstallerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AE3B3B1B57B65C00A205E8 /* MotionInstallerTests.swift */; };
+		F8AE3B461B57B66E00A205E8 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AE3B451B57B66E00A205E8 /* CoreBluetooth.framework */; };
+		F8D8ED211B6352B800C617ED /* SerialPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D8ED201B6352B800C617ED /* SerialPort.swift */; };
+		F8DFE8691B664A0B0092CBA6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8AE3B2C1B57B65C00A205E8 /* Images.xcassets */; };
+		F8E900D51B57B6D60044CE76 /* BLE.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E900D41B57B6D60044CE76 /* BLE.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F87869511B6358F300B6DFAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F878694D1B6358F300B6DFAA /* ORSSerialPort.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9DCA89121A2BB106009285EB;
+			remoteInfo = ORSSerial;
+		};
+		F87869531B6358F900B6DFAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F878694D1B6358F300B6DFAA /* ORSSerialPort.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DCA89111A2BB106009285EB;
+			remoteInfo = ORSSerial;
+		};
+		F8AE3B361B57B65C00A205E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8AE3B1B1B57B65C00A205E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8AE3B221B57B65C00A205E8;
+			remoteInfo = MotionInstaller;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F8AD212B1B63BE7200F4A8A2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F8AD212C1B63BE8700F4A8A2 /* ORSSerial.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F85E058A1B86FFAE00F70834 /* PlenMfxToCmd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenMfxToCmd.swift; sourceTree = "<group>"; };
+		F85E058C1B87023F00F70834 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
+		F8682F461B57EB5600C3B449 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
+		F8682F481B592F2600C3B449 /* PlenJsonToCmd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenJsonToCmd.swift; sourceTree = "<group>"; };
+		F878694D1B6358F300B6DFAA /* ORSSerialPort.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ORSSerialPort.xcodeproj; path = "Frameworks/ORSSerialPort/Framework Project/ORSSerialPort.xcodeproj"; sourceTree = "<group>"; };
+		F87869571B63712400B6DFAA /* ConnectProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectProcess.swift; sourceTree = "<group>"; };
+		F8AE3B231B57B65C00A205E8 /* MotionInstaller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotionInstaller.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8AE3B271B57B65C00A205E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8AE3B281B57B65C00A205E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F8AE3B2A1B57B65C00A205E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8AE3B2C1B57B65C00A205E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F8AE3B2F1B57B65C00A205E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F8AE3B351B57B65C00A205E8 /* MotionInstallerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotionInstallerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8AE3B3A1B57B65C00A205E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8AE3B3B1B57B65C00A205E8 /* MotionInstallerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionInstallerTests.swift; sourceTree = "<group>"; };
+		F8AE3B451B57B66E00A205E8 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		F8D8ED1E1B6352A700C617ED /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		F8D8ED201B6352B800C617ED /* SerialPort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerialPort.swift; sourceTree = "<group>"; };
+		F8E900D41B57B6D60044CE76 /* BLE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLE.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F8AE3B201B57B65C00A205E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F87869551B6358FE00B6DFAA /* ORSSerial.framework in Frameworks */,
+				F8AE3B461B57B66E00A205E8 /* CoreBluetooth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8AE3B321B57B65C00A205E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F878694E1B6358F300B6DFAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F87869521B6358F300B6DFAA /* ORSSerial.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8AE3B1A1B57B65C00A205E8 = {
+			isa = PBXGroup;
+			children = (
+				F878694D1B6358F300B6DFAA /* ORSSerialPort.xcodeproj */,
+				F8D8ED1E1B6352A700C617ED /* IOKit.framework */,
+				F8AE3B451B57B66E00A205E8 /* CoreBluetooth.framework */,
+				F8AE3B251B57B65C00A205E8 /* MotionInstaller */,
+				F8AE3B381B57B65C00A205E8 /* MotionInstallerTests */,
+				F8AE3B241B57B65C00A205E8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F8AE3B241B57B65C00A205E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8AE3B231B57B65C00A205E8 /* MotionInstaller.app */,
+				F8AE3B351B57B65C00A205E8 /* MotionInstallerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8AE3B251B57B65C00A205E8 /* MotionInstaller */ = {
+			isa = PBXGroup;
+			children = (
+				F8682F461B57EB5600C3B449 /* json.swift */,
+				F8E900D41B57B6D60044CE76 /* BLE.swift */,
+				F8AE3B281B57B65C00A205E8 /* AppDelegate.swift */,
+				F8AE3B2A1B57B65C00A205E8 /* ViewController.swift */,
+				F8AE3B2C1B57B65C00A205E8 /* Images.xcassets */,
+				F8AE3B2E1B57B65C00A205E8 /* Main.storyboard */,
+				F8AE3B261B57B65C00A205E8 /* Supporting Files */,
+				F8682F481B592F2600C3B449 /* PlenJsonToCmd.swift */,
+				F85E058A1B86FFAE00F70834 /* PlenMfxToCmd.swift */,
+				F8D8ED201B6352B800C617ED /* SerialPort.swift */,
+				F87869571B63712400B6DFAA /* ConnectProcess.swift */,
+				F85E058C1B87023F00F70834 /* SWXMLHash.swift */,
+			);
+			path = MotionInstaller;
+			sourceTree = "<group>";
+		};
+		F8AE3B261B57B65C00A205E8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F8AE3B271B57B65C00A205E8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F8AE3B381B57B65C00A205E8 /* MotionInstallerTests */ = {
+			isa = PBXGroup;
+			children = (
+				F8AE3B3B1B57B65C00A205E8 /* MotionInstallerTests.swift */,
+				F8AE3B391B57B65C00A205E8 /* Supporting Files */,
+			);
+			path = MotionInstallerTests;
+			sourceTree = "<group>";
+		};
+		F8AE3B391B57B65C00A205E8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F8AE3B3A1B57B65C00A205E8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F8AE3B221B57B65C00A205E8 /* MotionInstaller */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8AE3B3F1B57B65C00A205E8 /* Build configuration list for PBXNativeTarget "MotionInstaller" */;
+			buildPhases = (
+				F8AE3B1F1B57B65C00A205E8 /* Sources */,
+				F8AE3B201B57B65C00A205E8 /* Frameworks */,
+				F8AE3B211B57B65C00A205E8 /* Resources */,
+				F8AD212B1B63BE7200F4A8A2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F87869541B6358F900B6DFAA /* PBXTargetDependency */,
+			);
+			name = MotionInstaller;
+			productName = MotionInstaller;
+			productReference = F8AE3B231B57B65C00A205E8 /* MotionInstaller.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F8AE3B341B57B65C00A205E8 /* MotionInstallerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8AE3B421B57B65C00A205E8 /* Build configuration list for PBXNativeTarget "MotionInstallerTests" */;
+			buildPhases = (
+				F8AE3B311B57B65C00A205E8 /* Sources */,
+				F8AE3B321B57B65C00A205E8 /* Frameworks */,
+				F8AE3B331B57B65C00A205E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8AE3B371B57B65C00A205E8 /* PBXTargetDependency */,
+			);
+			name = MotionInstallerTests;
+			productName = MotionInstallerTests;
+			productReference = F8AE3B351B57B65C00A205E8 /* MotionInstallerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F8AE3B1B1B57B65C00A205E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "PLEN Project Company Ltd.";
+				TargetAttributes = {
+					F8AE3B221B57B65C00A205E8 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					F8AE3B341B57B65C00A205E8 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = F8AE3B221B57B65C00A205E8;
+					};
+				};
+			};
+			buildConfigurationList = F8AE3B1E1B57B65C00A205E8 /* Build configuration list for PBXProject "MotionInstaller" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F8AE3B1A1B57B65C00A205E8;
+			productRefGroup = F8AE3B241B57B65C00A205E8 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F878694E1B6358F300B6DFAA /* Products */;
+					ProjectRef = F878694D1B6358F300B6DFAA /* ORSSerialPort.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				F8AE3B221B57B65C00A205E8 /* MotionInstaller */,
+				F8AE3B341B57B65C00A205E8 /* MotionInstallerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F87869521B6358F300B6DFAA /* ORSSerial.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ORSSerial.framework;
+			remoteRef = F87869511B6358F300B6DFAA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F8AE3B211B57B65C00A205E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8AE3B2D1B57B65C00A205E8 /* Images.xcassets in Resources */,
+				F8AE3B301B57B65C00A205E8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8AE3B331B57B65C00A205E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8DFE8691B664A0B0092CBA6 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F8AE3B1F1B57B65C00A205E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8D8ED211B6352B800C617ED /* SerialPort.swift in Sources */,
+				F8AE3B2B1B57B65C00A205E8 /* ViewController.swift in Sources */,
+				F87869581B63712400B6DFAA /* ConnectProcess.swift in Sources */,
+				F8E900D51B57B6D60044CE76 /* BLE.swift in Sources */,
+				F8682F491B592F2600C3B449 /* PlenJsonToCmd.swift in Sources */,
+				F8AE3B291B57B65C00A205E8 /* AppDelegate.swift in Sources */,
+				F85E058B1B86FFAE00F70834 /* PlenMfxToCmd.swift in Sources */,
+				F85E058D1B87023F00F70834 /* SWXMLHash.swift in Sources */,
+				F8682F471B57EB5600C3B449 /* json.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8AE3B311B57B65C00A205E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8AE3B3C1B57B65C00A205E8 /* MotionInstallerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F87869541B6358F900B6DFAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ORSSerial;
+			targetProxy = F87869531B6358F900B6DFAA /* PBXContainerItemProxy */;
+		};
+		F8AE3B371B57B65C00A205E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F8AE3B221B57B65C00A205E8 /* MotionInstaller */;
+			targetProxy = F8AE3B361B57B65C00A205E8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F8AE3B2E1B57B65C00A205E8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8AE3B2F1B57B65C00A205E8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F8AE3B3D1B57B65C00A205E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F8AE3B3E1B57B65C00A205E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F8AE3B401B57B65C00A205E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MotionInstaller/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F8AE3B411B57B65C00A205E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MotionInstaller/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F8AE3B431B57B65C00A205E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MotionInstallerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MotionInstaller.app/Contents/MacOS/MotionInstaller";
+			};
+			name = Debug;
+		};
+		F8AE3B441B57B65C00A205E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MotionInstallerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MotionInstaller.app/Contents/MacOS/MotionInstaller";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F8AE3B1E1B57B65C00A205E8 /* Build configuration list for PBXProject "MotionInstaller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8AE3B3D1B57B65C00A205E8 /* Debug */,
+				F8AE3B3E1B57B65C00A205E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8AE3B3F1B57B65C00A205E8 /* Build configuration list for PBXNativeTarget "MotionInstaller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8AE3B401B57B65C00A205E8 /* Debug */,
+				F8AE3B411B57B65C00A205E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8AE3B421B57B65C00A205E8 /* Build configuration list for PBXNativeTarget "MotionInstallerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8AE3B431B57B65C00A205E8 /* Debug */,
+				F8AE3B441B57B65C00A205E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F8AE3B1B1B57B65C00A205E8 /* Project object */;
+}
