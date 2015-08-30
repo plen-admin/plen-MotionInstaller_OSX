@@ -32,7 +32,7 @@ class SerialPort: NSObject, ConnectProcess, ORSSerialPortDelegate {
         self.delegate = delegate
         self.serialPort = ORSSerialPort(path: devicePath)
         self.serialPort?.delegate = self
-        
+        self.serialPort?.close()
     }
     
     func PlenSendCommand(sendCmd: PlenConvertCmd) {
@@ -79,7 +79,7 @@ class SerialPort: NSObject, ConnectProcess, ORSSerialPortDelegate {
             }
             sendCmdStr = sendCmdStr.substringFromIndex(100)
         
-        } while (sendCmdStr.length > 0 && isPlenConnected == true)
+        } while (sendCmdStr != "" && isPlenConnected == true)
         
         if isPlenConnected == false {
             return
@@ -117,25 +117,31 @@ class SerialPort: NSObject, ConnectProcess, ORSSerialPortDelegate {
 }
 extension SerialPort {
     func serialPortWasOpened(serialPort: ORSSerialPort) {
+        println("PORT IS OPEN...")
     }
     
     func serialPortWasClosed(serialPort: ORSSerialPort) {
+        println("PORT IS CLOSE")
     }
     
     func serialPort(serialPort: ORSSerialPort, didReceiveData data: NSData) {
         if let string = NSString(data: data, encoding: NSUTF8StringEncoding) {
-            println(string)
+            print(string)
         }
     }
     
     @objc func serialPortWasRemovedFromSystem(serialPort: ORSSerialPort) {    }
     
     func serialPort(serialPort: ORSSerialPort, didEncounterError error: NSError) {
+        println("PORT ERR \(error)")
     }
-    }
+}
 
 extension NSString {
     func substringRangeIndex(from:Int, range:Int) -> NSString {
+        if self.length < (from + range) {
+            return ""
+        }
         let str:NSString = self.substringFromIndex(from)
         return str.substringToIndex(range)
     }

@@ -726,8 +726,8 @@
                                     <action selector="btnStart_Click:" target="XfG-lQ-9wD" id="B8u-ma-ccN"/>
                                 </connections>
                             </button>
-                            <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TDz-zX-H1k">
-                                <rect key="frame" x="160" y="303" width="99" height="26"/>
+                            <comboBox verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TDz-zX-H1k">
+                                <rect key="frame" x="152" y="302" width="99" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="96" id="anK-0t-TC8"/>
                                 </constraints>
@@ -743,8 +743,8 @@
                                     <action selector="cmbBoxConnect_SelectedItemChanged:" target="XfG-lQ-9wD" id="XHT-Ag-umk"/>
                                 </connections>
                             </comboBox>
-                            <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="24z-AV-JKp">
-                                <rect key="frame" x="313" y="303" width="242" height="26"/>
+                            <comboBox verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24z-AV-JKp">
+                                <rect key="frame" x="275" y="302" width="215" height="26"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="EN2-he-Pxu">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -806,27 +806,41 @@
                                     <action selector="btnStop_Click:" target="XfG-lQ-9wD" id="5eJ-Vj-NSf"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="D5A-wO-Up7">
+                                <rect key="frame" x="502" y="298" width="56" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="I3p-hD-x3i"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="更新" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9dg-hy-5R7">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="13" name="HiraKakuProN-W3"/>
+                                    <connections>
+                                        <action selector="btnPortUpdate_Click:" target="XfG-lQ-9wD" id="a2Q-om-Ko8"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Sk3-4q-i2D" firstAttribute="leading" secondItem="idL-eW-Ao6" secondAttribute="leading" id="3PY-ja-yz8"/>
                             <constraint firstItem="Sk3-4q-i2D" firstAttribute="top" secondItem="TDz-zX-H1k" secondAttribute="bottom" constant="22" id="8yZ-II-TWl"/>
                             <constraint firstItem="H0b-r2-PNH" firstAttribute="baseline" secondItem="RBC-3f-bj2" secondAttribute="baseline" id="F3P-SB-cN7"/>
                             <constraint firstItem="aFU-K9-XBn" firstAttribute="top" secondItem="Sk3-4q-i2D" secondAttribute="bottom" constant="20" symbolic="YES" id="FH0-e8-Qiq"/>
+                            <constraint firstItem="D5A-wO-Up7" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="10" id="JWT-hX-mL8"/>
                             <constraint firstItem="aFU-K9-XBn" firstAttribute="leading" secondItem="Sk3-4q-i2D" secondAttribute="leading" id="KPN-L3-1Z2"/>
                             <constraint firstAttribute="bottom" secondItem="LnX-iq-OsP" secondAttribute="bottom" constant="13" id="LEC-uw-qf5"/>
                             <constraint firstItem="AdB-QO-2TN" firstAttribute="baseline" secondItem="idL-eW-Ao6" secondAttribute="baseline" id="MKe-xV-V4y"/>
                             <constraint firstItem="RBC-3f-bj2" firstAttribute="leading" secondItem="H0b-r2-PNH" secondAttribute="trailing" constant="40" id="Qkj-yi-iJi"/>
                             <constraint firstItem="LnX-iq-OsP" firstAttribute="top" secondItem="aFU-K9-XBn" secondAttribute="bottom" constant="13" id="Ral-o2-2SA"/>
                             <constraint firstItem="LBJ-gN-l5Z" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="140" id="ShP-cA-yZ6"/>
-                            <constraint firstItem="aFU-K9-XBn" firstAttribute="trailing" secondItem="24z-AV-JKp" secondAttribute="trailing" id="T3W-XP-VTc"/>
+                            <constraint firstAttribute="trailing" secondItem="aFU-K9-XBn" secondAttribute="trailing" constant="20" id="UnC-pb-xEg"/>
                             <constraint firstItem="TDz-zX-H1k" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="9" id="XyX-vW-wjU"/>
                             <constraint firstItem="AdB-QO-2TN" firstAttribute="baseline" secondItem="TDz-zX-H1k" secondAttribute="baseline" id="Yxz-kl-nrJ"/>
                             <constraint firstItem="TDz-zX-H1k" firstAttribute="leading" secondItem="idL-eW-Ao6" secondAttribute="trailing" constant="49" id="cfi-1a-c0W"/>
                             <constraint firstItem="LnX-iq-OsP" firstAttribute="baseline" secondItem="LBJ-gN-l5Z" secondAttribute="baseline" id="cnN-e3-aTm"/>
-                            <constraint firstItem="TDz-zX-H1k" firstAttribute="baseline" secondItem="24z-AV-JKp" secondAttribute="baseline" id="kXT-k5-l1f"/>
+                            <constraint firstItem="24z-AV-JKp" firstAttribute="leading" secondItem="TDz-zX-H1k" secondAttribute="trailing" constant="24" id="gA2-V0-Vi4"/>
+                            <constraint firstItem="D5A-wO-Up7" firstAttribute="leading" secondItem="24z-AV-JKp" secondAttribute="trailing" constant="24" id="kZH-Wi-V4g"/>
                             <constraint firstItem="LnX-iq-OsP" firstAttribute="leading" secondItem="aFU-K9-XBn" secondAttribute="leading" id="mGU-gb-jhE"/>
-                            <constraint firstItem="24z-AV-JKp" firstAttribute="leading" secondItem="TDz-zX-H1k" secondAttribute="trailing" constant="57" id="p2j-6t-dH1"/>
-                            <constraint firstAttribute="trailing" secondItem="24z-AV-JKp" secondAttribute="trailing" constant="20" symbolic="YES" id="qDh-cc-C86"/>
+                            <constraint firstAttribute="trailing" secondItem="D5A-wO-Up7" secondAttribute="trailing" constant="20" id="pmm-4d-fjB"/>
                             <constraint firstItem="idL-eW-Ao6" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="tvy-NT-cpU"/>
                             <constraint firstItem="Sk3-4q-i2D" firstAttribute="baseline" secondItem="H0b-r2-PNH" secondAttribute="baseline" id="vZA-ii-Lff"/>
                             <constraint firstItem="H0b-r2-PNH" firstAttribute="leading" secondItem="Sk3-4q-i2D" secondAttribute="trailing" constant="40" id="w9w-q9-Tcn"/>
@@ -834,6 +848,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnPortUpDate" destination="D5A-wO-Up7" id="r2X-fC-gOg"/>
                         <outlet property="btnRead" destination="Sk3-4q-i2D" id="jSL-hK-37J"/>
                         <outlet property="btnStart" destination="H0b-r2-PNH" id="hbQ-eS-BCV"/>
                         <outlet property="btnStop" destination="RBC-3f-bj2" id="1fG-Br-E9j"/>
