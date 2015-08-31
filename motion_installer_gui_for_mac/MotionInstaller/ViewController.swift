@@ -50,9 +50,11 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
         
         // 引数にjsonファイルの指定がある（[0]：appのパス，[1]：jsonのパス，[2]：ファイル名）
         let arguments: [String] = NSProcessInfo.processInfo().arguments.map({String($0 as! NSString)})
+        
         if arguments.count == 3 {
-            // jsonのパスはURLエンコードされている
-            let path = arguments[1].stringByRemovingPercentEncoding;
+            // jsonのパスはURLエンコードされているが，MotionEditorForUnityのエンコードではスペースが"+"なので置換
+            let encodingPath = arguments[1].stringByReplacingOccurrencesOfString("+", withString: "%20", options: nil, range: nil)
+            let path = encodingPath.stringByRemovingPercentEncoding;
 
             if path == nil {
                 return
@@ -64,12 +66,13 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
                 if jsonParser.JsonParse(NSURL(fileURLWithPath: path!)) == true {
                     convertedCmdList.append(jsonParser)
                 }
+                labelMotionCnt.stringValue = String(convertedCmdList.count)
             }
             if convertedCmdList.count == 0 {
                 return
             }
             
-            isAutoAppStart = true
+            //isAutoAppStart = true
             isAutoAppClose = true
         }
         
@@ -118,7 +121,6 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
         // ファイル選択ダイアログ表示
         if openFilePanel.runModal() == NSOKButton {
             convertedCmdList.removeAll()
-            labelMotionCnt.stringValue = String(openFilePanel.URLs.count)
             for pathObj in openFilePanel.URLs {
                 if (pathObj as! NSURL).pathExtension == "mfx" {
                     var mfxParser = MfxToCmd()
@@ -134,7 +136,7 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
                         convertedCmdList.append(jsonParser)
                     }
                 }
-                
+                labelMotionCnt.stringValue = String(convertedCmdList.count)
             }
         }
     }
