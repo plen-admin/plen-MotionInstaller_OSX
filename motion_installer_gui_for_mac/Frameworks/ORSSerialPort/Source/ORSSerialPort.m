@@ -379,13 +379,14 @@ static __strong NSMutableArray *allSerialPorts;
 	
 	// Set port back the way it was before we used it
 	tcsetattr(self.fileDescriptor, TCSADRAIN, &originalPortAttributes);
-	
+
 	int localFD = self.fileDescriptor;
 	self.fileDescriptor = 0; // So other threads know that the port should be closed and can stop I/O operations
 	
 	if (close(localFD))
 	{
 		self.fileDescriptor = localFD;
+        dispatch_semaphore_signal(self.selectSemaphore);
 		LOG_SERIAL_PORT_ERROR(@"Error closing serial port with file descriptor %i:%i", self.fileDescriptor, errno);
 		[self notifyDelegateOfPosixError];
 		return NO;

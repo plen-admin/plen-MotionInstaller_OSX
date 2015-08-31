@@ -15,6 +15,7 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
     @IBOutlet var btnRead: NSButton!
     @IBOutlet var btnStart: NSButton!
     @IBOutlet var btnStop: NSButton!
+    @IBOutlet var btnPortUpDate: NSButton!
     @IBOutlet var txtViewLog: NSTextView!
     @IBOutlet var labelSendedCnt: NSTextField!
     @IBOutlet var labelMotionCnt: NSTextField!
@@ -41,7 +42,7 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
         bleProcess.delegate = self
         // Do any additional setup after loading the view.
         
-        cmdBoxSerial_Init()
+        cmbBoxSerial_Init()
         
         
         // windowを最前面に表示させる
@@ -49,9 +50,11 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
         
         // 引数にjsonファイルの指定がある（[0]：appのパス，[1]：jsonのパス，[2]：ファイル名）
         let arguments: [String] = NSProcessInfo.processInfo().arguments.map({String($0 as! NSString)})
+        
         if arguments.count == 3 {
-            // jsonのパスはURLエンコードされている
-            let path = arguments[1].stringByRemovingPercentEncoding;
+            // jsonのパスはURLエンコードされているが，MotionEditorForUnityのエンコードではスペースが"+"なので置換
+            let encodingPath = arguments[1].stringByReplacingOccurrencesOfString("+", withString: "%20", options: nil, range: nil)
+            let path = encodingPath.stringByRemovingPercentEncoding;
 
             if path == nil {
                 return
@@ -63,12 +66,13 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
                 if jsonParser.JsonParse(NSURL(fileURLWithPath: path!)) == true {
                     convertedCmdList.append(jsonParser)
                 }
+                labelMotionCnt.stringValue = String(convertedCmdList.count)
             }
             if convertedCmdList.count == 0 {
                 return
             }
             
-            isAutoAppStart = true
+            //isAutoAppStart = true
             isAutoAppClose = true
         }
         
@@ -81,7 +85,7 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
     }
     
     /*----- シリアルポート一覧コンボボックス初期化 -----*/
-    func cmdBoxSerial_Init() {
+    func cmbBoxSerial_Init() {
         // 「$ ls /dev/tty.usb*」の結果をpipeに格納，受け取ったtty.usb一覧をコンボボックスに表示する
         let task = NSTask()
         task.launchPath = "/bin/sh"
@@ -117,7 +121,6 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
         // ファイル選択ダイアログ表示
         if openFilePanel.runModal() == NSOKButton {
             convertedCmdList.removeAll()
-            labelMotionCnt.stringValue = String(openFilePanel.URLs.count)
             for pathObj in openFilePanel.URLs {
                 if (pathObj as! NSURL).pathExtension == "mfx" {
                     var mfxParser = MfxToCmd()
@@ -133,7 +136,7 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
                         convertedCmdList.append(jsonParser)
                     }
                 }
-                
+                labelMotionCnt.stringValue = String(convertedCmdList.count)
             }
         }
     }
@@ -173,6 +176,7 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
         connectProcess.PlenConnect()
         btnRead.enabled = false
         btnStart.enabled = false
+        btnPortUpDate.enabled = false
         cmbBoxConnect.enabled = false
         cmbBoxSerial.enabled = false
         labelSendedCnt.stringValue = "0 / \(convertedCmdList.count)"
@@ -184,13 +188,22 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
         txtViewLog.insertText("***** 通信が中断されました． *****\n")
         PlenDisconnect()
     }
+    
+    @IBAction func btnPortUpdate_Click(sender: AnyObject) {
+        cmbBoxSerial.deselectItemAtIndex(cmbBoxSerial.indexOfSelectedItem)
+        cmbBoxSerial.removeAllItems()
+        cmbBoxSerial_Init()
+    }
 
     @IBAction func cmbBoxConnect_SelectedItemChanged(sender: AnyObject) {
         if (cmbBoxConnect.objectValueOfSelectedItem as! String) == USB {
-            cmbBoxSerial.enabled = true;
+            cmbBoxSerial.enabled = true
+            btnPortUpDate.enabled = true
+            isAutoAppStart = false
         }
         else {
-            cmbBoxSerial.enabled = false;
+            cmbBoxSerial.enabled = false
+            btnPortUpDate.enabled = false
             if isAutoAppStart == true {
                 btnStart_Click(self)
                 isAutoAppStart = false
@@ -203,7 +216,7 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
     }
 }
 
-/*----- BLE Process -----*/
+/*----- Communication Process -----*/
 extension ViewController {
     
     func BLEStateUpdated(state: CBCentralManagerState) {

@@ -23,6 +23,7 @@ Podfile.lock
 # others
 *.swp
 *.app
-*.app/*
+*.app/*.*
+*.dmg
 !.gitkeep
 .DS_Store
