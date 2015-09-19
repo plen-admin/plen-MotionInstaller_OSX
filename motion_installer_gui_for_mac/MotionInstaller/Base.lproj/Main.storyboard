@@ -765,6 +765,32 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RBC-3f-bj2">
+                                <rect key="frame" x="374" y="257" width="101" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="89" id="MLl-Ji-YSz"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="通信終了" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CH3-iE-lDV">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="btnStop_Click:" target="XfG-lQ-9wD" id="5eJ-Vj-NSf"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="D5A-wO-Up7">
+                                <rect key="frame" x="502" y="298" width="56" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="I3p-hD-x3i"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="更新" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9dg-hy-5R7">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="13" name="HiraKakuProN-W3"/>
+                                    <connections>
+                                        <action selector="btnPortUpdate_Click:" target="XfG-lQ-9wD" id="a2Q-om-Ko8"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFU-K9-XBn">
                                 <rect key="frame" x="20" y="43" width="532" height="201"/>
                                 <clipView key="contentView" id="h4o-iE-LKL">
@@ -793,32 +819,6 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RBC-3f-bj2">
-                                <rect key="frame" x="374" y="257" width="101" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="89" id="MLl-Ji-YSz"/>
-                                </constraints>
-                                <buttonCell key="cell" type="push" title="通信終了" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CH3-iE-lDV">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="btnStop_Click:" target="XfG-lQ-9wD" id="5eJ-Vj-NSf"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="D5A-wO-Up7">
-                                <rect key="frame" x="502" y="298" width="56" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="I3p-hD-x3i"/>
-                                </constraints>
-                                <buttonCell key="cell" type="push" title="更新" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9dg-hy-5R7">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="13" name="HiraKakuProN-W3"/>
-                                    <connections>
-                                        <action selector="btnPortUpdate_Click:" target="XfG-lQ-9wD" id="a2Q-om-Ko8"/>
-                                    </connections>
-                                </buttonCell>
-                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Sk3-4q-i2D" firstAttribute="leading" secondItem="idL-eW-Ao6" secondAttribute="leading" id="3PY-ja-yz8"/>
