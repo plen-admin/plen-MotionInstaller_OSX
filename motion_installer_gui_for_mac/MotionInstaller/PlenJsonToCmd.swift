@@ -61,7 +61,27 @@ class JsonToCmd : PlenConvertCmd {
         // codes
         if jsonData["codes"].length == 0 {
             cmdStr += "000000"
+        } else {
+            var codesStr: String? = nil
+            for codes in jsonData["codes"].asArray! {
+                if codes["func"].asString == "loop" {
+                    codesStr = "01"
+                    for i in 0...1 {
+                        codesStr! += String(format : "%02hhx", codes["args"].asArray![i].asInt!)
+                    }
+                } else if codes["func"].asString == "jump" {
+                    if codesStr == nil {
+                        codesStr = String(format : "02%02hhx00", codes["args"].asArray![0].asInt!)
+                    }
+                } else {
+                    delegate.MessageFromJsonToCmd("error : 送信データの変換に失敗しました（header）")
+                    return false
+                } 
+            }
+            cmdStr += codesStr!
         }
+        
+        //println(cmdStr)
         //frames
         cmdStr += String(format : "%02hx", count(jsonData["frames"].asArray!))
         // ヘッダ部は30バイトなのでカウント値がおかしければエラーをはく

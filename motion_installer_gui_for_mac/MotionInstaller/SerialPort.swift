@@ -78,7 +78,6 @@ class SerialPort: NSObject, ConnectProcess, ORSSerialPortDelegate {
                 })
             }
             sendCmdStr = sendCmdStr.substringFromIndex(100)
-        
         } while (sendCmdStr != "" && isPlenConnected == true)
         
         if isPlenConnected == false {
