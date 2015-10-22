@@ -33,15 +33,15 @@ class JsonToCmd : PlenConvertCmd {
         let readStr = NSString(contentsOfURL: path, encoding: NSUTF8StringEncoding, error: nil)
         
         if readStr == nil {
-            delegate.MessageFromJsonToCmd("error : モーションファイルの検索に失敗しました．")
+            delegate.MessageFromJsonToCmd("error! : Searching motion(s) was failed.")
         }
         
         let json = JSON.parse(readStr as! String)
         if json.isError == true {
-            delegate.MessageFromJsonToCmd("error : JSONファイルの解析に失敗しました．選択したモーションファイルが破損している恐れがあります．")
+            delegate.MessageFromJsonToCmd("error! : Parsing JSON was failed. Selected motion might was broken.")
             return false
         }
-        delegate.MessageFromJsonToCmd("【\(path.lastPathComponent!)】モーションファイルを送信データとして変換します...")
+        delegate.MessageFromJsonToCmd("[\(path.lastPathComponent!)] The motion is converting to command-line...")
         return CmdParse(json)
     }
     
@@ -74,7 +74,7 @@ class JsonToCmd : PlenConvertCmd {
                         codesStr = String(format : "02%02hhx00", codes["args"].asArray![0].asInt!)
                     }
                 } else {
-                    delegate.MessageFromJsonToCmd("error : 送信データの変換に失敗しました（header）")
+                    delegate.MessageFromJsonToCmd("error! : Converting command-line was failed. (header)")
                     return false
                 } 
             }
@@ -86,7 +86,7 @@ class JsonToCmd : PlenConvertCmd {
         cmdStr += String(format : "%02hx", count(jsonData["frames"].asArray!))
         // ヘッダ部は30バイトなのでカウント値がおかしければエラーをはく
         if count(cmdStr) != 30 {
-            delegate.MessageFromJsonToCmd("error : 送信データの変換に失敗しました（header）")
+            delegate.MessageFromJsonToCmd("error! : Converting command-line was failed. (header)")
             return false
         }
         println(cmdStr)
@@ -102,14 +102,14 @@ class JsonToCmd : PlenConvertCmd {
             }
             
             if count(frameStr) != 100 {
-                delegate.MessageFromJsonToCmd("error : 送信データの変換に失敗しました（frame）")
+                delegate.MessageFromJsonToCmd("error! : Converting command-line was failed. (frame)")
                 return false
             }
             cmdStr += frameStr
         }
         isConverted = true
         convertedStr = cmdStr
-        delegate.MessageFromJsonToCmd("***** モーションファイルを送信データに変換しました．（\(count(cmdStr))バイト） *****")
+        delegate.MessageFromJsonToCmd("***** The motion has converted. (\(count(cmdStr))bytes) *****")
         return true
     }
     

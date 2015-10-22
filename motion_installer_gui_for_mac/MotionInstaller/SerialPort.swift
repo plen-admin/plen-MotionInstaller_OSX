@@ -47,7 +47,7 @@ class SerialPort: NSObject, ConnectProcess, ORSSerialPortDelegate {
         var sendCnt = 0
         
         // header
-        serialPort!.sendData(StrToNSData("#IN"))
+        serialPort!.sendData(StrToNSData(">IN"))
         serialPort!.sendData(StrToNSData(sendCmdStr.substringRangeIndex(0 , range: 10)))
         NSThread.sleepForTimeInterval(0.1)
         serialPort!.sendData(StrToNSData(sendCmdStr.substringRangeIndex(10, range: 20)))
@@ -116,11 +116,11 @@ class SerialPort: NSObject, ConnectProcess, ORSSerialPortDelegate {
 }
 extension SerialPort {
     func serialPortWasOpened(serialPort: ORSSerialPort) {
-        println("PORT IS OPEN...")
+        println("THE PORT IS OPEN...")
     }
     
     func serialPortWasClosed(serialPort: ORSSerialPort) {
-        println("PORT IS CLOSE")
+        println("THE PORT IS CLOSE")
     }
     
     func serialPort(serialPort: ORSSerialPort, didReceiveData data: NSData) {

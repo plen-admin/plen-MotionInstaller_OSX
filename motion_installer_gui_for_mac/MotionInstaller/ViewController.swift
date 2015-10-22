@@ -119,7 +119,7 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
         openFilePanel.canChooseFiles = true
         openFilePanel.allowsMultipleSelection = true
         // ファイル選択ダイアログ表示
-        if openFilePanel.runModal() == NSOKButton {
+        if openFilePanel.runModal() == NSModalResponseOK {
             convertedCmdList.removeAll()
             for pathObj in openFilePanel.URLs {
                 if (pathObj as! NSURL).pathExtension == "mfx" {
@@ -143,16 +143,16 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
     
     @IBAction func btnStart_Click(sender: AnyObject) {
         
-        txtViewLog.insertText("***** 通信を開始します... *****\n")
+        txtViewLog.insertText("***** Connection starting...  *****\n")
         
         if convertedCmdList.count == 0 {
-            txtViewLog.insertText("error : 送信するモーションファイルが読み込まれていません．")
+            txtViewLog.insertText("error! : Motion that will be sending had not loaded.")
             return
         }
         // BLE通信
         if (cmbBoxConnect.objectValueOfSelectedItem as! String) == BLE {
             if bleProcess.centralManager.state != CBCentralManagerState.PoweredOn {
-                txtViewLog.insertText("error : BLEを利用できません．(\(bleProcess.centralManager.state.toString))    \n")
+                txtViewLog.insertText("error! : Bluetooth4.0 can't be used.．(\(bleProcess.centralManager.state.toString))    \n")
                 return
             }
             connectProcess = bleProcess
@@ -160,7 +160,7 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
         // USB通信
         else {
             if cmbBoxSerial.objectValueOfSelectedItem == nil {
-                txtViewLog.insertText("error : シリアルポートを選択してください．\n")
+                txtViewLog.insertText("error! : Please choose a serial port.\n")
                 return
             }
             
@@ -168,7 +168,7 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
             
             
             if usbProcess?.serialPort == nil {
-                txtViewLog.insertText("error : 選択されたシリアルポートが利用できません．\n")
+                txtViewLog.insertText("error! : The serial port isn't available.\n")
                 return
             }
             connectProcess = usbProcess!
@@ -185,7 +185,7 @@ class ViewController: NSViewController,PlenMotionInstallDelegate, PlenConvertCmd
 
     
     @IBAction func btnStop_Click(sender: AnyObject) {
-        txtViewLog.insertText("***** 通信が中断されました． *****\n")
+        txtViewLog.insertText("***** The process has aborted. *****\n")
         PlenDisconnect()
     }
     
@@ -240,7 +240,7 @@ extension ViewController {
     func PlenConnected(isError: Bool) {
         
         if isError == true {
-            txtViewLog.insertText("error : PLENとの接続に失敗しました")
+            txtViewLog.insertText("error! : Connecting to the PLEN was failed.")
             return
         }
         sendCmdList = convertedCmdList
@@ -252,7 +252,7 @@ extension ViewController {
         sendCmdList.removeAtIndex(0)
         
         if sendCmdList.count == 0 {
-            txtViewLog.insertText("***** すべてのモーションデータの送信が完了しました． *****\n")
+            txtViewLog.insertText("***** Sending all motion has completed. *****\n")
             PlenDisconnect()
             
             if isAutoAppClose == true {
@@ -270,6 +270,9 @@ extension ViewController {
     }
     
     func PlenDisconnect() {
+        if connectProcess == nil {
+            return
+        }
         connectProcess.PlenDisconnect()
         btnRead.enabled = true
         btnStart.enabled = true

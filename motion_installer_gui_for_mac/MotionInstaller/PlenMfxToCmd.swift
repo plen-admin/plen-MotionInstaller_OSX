@@ -20,19 +20,19 @@ class MfxToCmd : PlenConvertCmd {
         let readStr = NSString(contentsOfURL: path, encoding: NSUTF8StringEncoding, error: nil)
         
         if readStr == nil {
-            delegate.MessageFromJsonToCmd("error : モーションファイルの検索に失敗しました．")
+            delegate.MessageFromJsonToCmd("error! : Searching motion(s) was failed.")
         }
         
         let xml = SWXMLHash.parse(readStr as! String)
         
         switch xml {
         case .Error(let error):
-                delegate.MessageFromJsonToCmd("error : MFXファイルの解析に失敗しました．選択したモーションファイルが破損している恐れがあります．")
+                delegate.MessageFromJsonToCmd("error! : Parsing MFX was failed. Selected motion might was broken.")
                 return false
         default:
             break
         }
-        delegate.MessageFromJsonToCmd("【\(path.lastPathComponent!)】モーションファイルを送信データとして変換します...")
+        delegate.MessageFromJsonToCmd("[\(path.lastPathComponent!)] The motion is converting to command-line...")
         return CmdParse(xml)
     }
     
@@ -43,14 +43,14 @@ class MfxToCmd : PlenConvertCmd {
         // slot
         let slot = mfxData["mfx"]["motion"].element?.attributes["id"]?.toInt()
         if slot == nil || slot! < 0 || slot! > 99 {
-            delegate.MessageFromJsonToCmd("error : 送信データの変換に失敗しました（slot）")
+            delegate.MessageFromJsonToCmd("error! : Converting command-line was failed. (slot)")
             return false
         }
         cmdStr = String(format: "%02hhx", slot!)
         //name
         let name = mfxData["mfx"]["motion"]["name"].element?.text
         if name == nil {
-            delegate.MessageFromJsonToCmd("error : 送信データの変換に失敗しました（name）")
+            delegate.MessageFromJsonToCmd("error! : Converting command-line was failed. (name)")
             return false
         }
         cmdStr += name!
@@ -64,20 +64,20 @@ class MfxToCmd : PlenConvertCmd {
         let prm0 = mfxData["mfx"]["motion"]["extra"]["param"].withAttr("id", "0").element?.text!.toInt()
         let prm1 = mfxData["mfx"]["motion"]["extra"]["param"].withAttr("id", "1").element?.text!.toInt()
         if fnc == nil || prm0 == nil || prm1 == nil {
-            delegate.MessageFromJsonToCmd("error : 送信データの変換に失敗しました（extra）")
+            delegate.MessageFromJsonToCmd("error! : Converting command-line was failed. (extra)")
             return false
         }
         cmdStr += String(format: "%02hhx%02hhx%02hhx", fnc!, prm0!, prm1!)
         //frames
         let frameNum = mfxData["mfx"]["motion"]["frameNum"].element?.text!.toInt()
         if frameNum == nil {
-            delegate.MessageFromJsonToCmd("error : 送信データの変換に失敗しました（frameNum）")
+            delegate.MessageFromJsonToCmd("error! : Converting command-line was failed. (frameNum)")
             return false
         }
         cmdStr += String(format : "%02hhx", frameNum!)
         // ヘッダ部は30バイトなのでカウント値がおかしければエラーをはく
         if count(cmdStr) != 30 {
-            delegate.MessageFromJsonToCmd("error : 送信データの変換に失敗しました（header）")
+            delegate.MessageFromJsonToCmd("error! : Converting command-line was failed. (header)")
             return false
         }
         println(cmdStr)
@@ -87,7 +87,7 @@ class MfxToCmd : PlenConvertCmd {
                 // time
                 let time = frame["time"].element?.text!.toInt()
                 if time == nil {
-                    delegate.MessageFromJsonToCmd("error : 送信データの変換に失敗しました（frame）")
+                    delegate.MessageFromJsonToCmd("error! : Converting command-line was failed. (frame)")
                     return false
                 }
                 var frameStr = String(format: "%04hx", time!)
@@ -95,14 +95,14 @@ class MfxToCmd : PlenConvertCmd {
                 for j in 0...23 {
                     let joint = frame["joint"].withAttr("id", j.description).element?.text!.toInt()
                     if joint == nil {
-                        delegate.MessageFromJsonToCmd("error : 送信データの変換に失敗しました（joint）")
+                        delegate.MessageFromJsonToCmd("error! : Converting command-line was failed. (joint)")
                         return false
                     }
                     frameStr += String(format: "%04hx", joint!)
                 }
                 
                 if count(frameStr) != 100 {
-                    delegate.MessageFromJsonToCmd("error : 送信データの変換に失敗しました（frame）")
+                    delegate.MessageFromJsonToCmd("error! : Converting command-line was failed. (frame)")
                     return false
                 }
                 cmdStr += frameStr
@@ -110,7 +110,7 @@ class MfxToCmd : PlenConvertCmd {
         }
         isConverted = true
         convertedStr = cmdStr
-        delegate.MessageFromJsonToCmd("***** モーションファイルを送信データに変換しました．（\(count(cmdStr))バイト） *****")
+        delegate.MessageFromJsonToCmd("***** The motion has converted. (\(count(cmdStr))bytes) *****")
         return true
     }
 }

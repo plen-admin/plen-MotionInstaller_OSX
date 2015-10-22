@@ -119,7 +119,7 @@ extension BLEProcess {
         self.sendCmd = sendCmd
         stackSendcmdStr = sendCmd.convertedStr
         sendAllFrameCnt = stackSendcmdStr.length / 100
-        var data = "#IN".dataUsingEncoding(NSASCIIStringEncoding)
+        var data = ">IN".dataUsingEncoding(NSASCIIStringEncoding)
         connectPeripheral.writeValue(data, forCharacteristic: connectCharacteristic
             , type: CBCharacteristicWriteType.WithResponse)
     }
@@ -154,7 +154,7 @@ extension BLEProcess {
     }
     func centralManager(central: CBCentralManager!, didConnectPeripheral peripheral: CBPeripheral!) {
         connectPeripheral.delegate = self
-        delegate.MessageFormBLEProcess("Peripheral Connected. Scan Services...")
+        delegate.MessageFormBLEProcess("The peripheral Connected. Scan Services...")
         peripheral.discoverServices(nil)
     }
     
@@ -178,7 +178,7 @@ extension BLEProcess {
         }
         
         if isServiceExisted == false {
-            delegate.MessageFormBLEProcess("Connecting Peripheral isn't PLEN")
+            delegate.MessageFormBLEProcess("Connecting peripheral isn't PLEN")
             centralManager.cancelPeripheralConnection(peripheral)
             connectExcludePeripherals.append(peripheral)
             delegate.MessageFormBLEProcess("PLEN re-searching...")
@@ -203,10 +203,11 @@ extension BLEProcess {
                 connectCharacteristic = characteristic
                 delegate.MessageFormBLEProcess("PLEN connected")
                 delegate.PlenConnected(false)
+                
                 return
             }
         }
-        delegate.MessageFormBLEProcess("Connecting Peripheral isn't PLEN")
+        delegate.MessageFormBLEProcess("Connecting peripheral isn't PLEN")
         centralManager.cancelPeripheralConnection(peripheral)
         connectExcludePeripherals.append(peripheral)
         delegate.MessageFormBLEProcess("PLEN re-searching...")
@@ -218,7 +219,9 @@ extension BLEProcess {
 /*----- BLE Disconnect Process -----*/
 extension BLEProcess {
     func PlenDisconnect() {
-        centralManager.cancelPeripheralConnection(connectPeripheral)
+        if connectPeripheral != nil {
+            centralManager.cancelPeripheralConnection(connectPeripheral)
+        }
         centralManager.stopScan()
         delegate.MessageFormBLEProcess("PLEN disconnected")
         isConnected = false
@@ -228,17 +231,17 @@ extension CBCentralManagerState {
     var toString : String! {
         switch self  {
         case CBCentralManagerState.PoweredOn:
-            return "BluetoothがONで，かつ，今利用可能です．"
+            return "Bluetooth4.0 ON."
         case CBCentralManagerState.PoweredOff:
-            return "BluetoothがOFFになっています"
+            return "Bluetooth4.0 OFF."
         case CBCentralManagerState.Resetting:
-            return "システムサービスとの接続が一時的に失われました．"
+            return "Bluetooth System Service Resetting."
         case CBCentralManagerState.Unauthorized:
-            return "このアプリケーションは，BLEを利用する認可がありません．"
+            return "This application isn't authorized to use Bluetooth4.0."
         case CBCentralManagerState.Unknown:
-            return "BLEが利用可能は判定できません．"
+            return "This application can't check that Bluetooth4.0 is available. "
         case CBCentralManagerState.Unsupported:
-            return "このMacはBLEをサポートしていません．"
+            return "This Mac does not support Bluetooth4.0 ."
         }
     }
 }
