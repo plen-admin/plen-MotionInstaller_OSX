@@ -3,7 +3,7 @@ The MIT License (MIT)
 Copyright (c) 2015,
 
 - [Yugo KAJIWARA](https://github.com/musubi05)
-- [PLEN Project Company Ltd.](http://plen.jp)
+- [PLEN Project Company Inc.](http://plen.jp)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
